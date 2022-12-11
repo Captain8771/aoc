@@ -1,15 +1,6 @@
 (async (part1) => {
-    const { readFileSync } = require("fs")
-    const token = readFileSync("./session.txt").toString()
-    const fetch = require("node-fetch")
-
-
-    const res = await fetch("https://adventofcode.com/2022/day/1/input", {
-        headers: {
-            cookie: "session=" + token
-        }
-    })
-    const input = await res.text()
+    const { getInput } = require("./utils")
+    const input = await getInput(1)
 
     const elves = input.split("\n\n")
     if (part1) {
